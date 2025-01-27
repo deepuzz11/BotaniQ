@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotaniQ: Plant Care DashBoard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="signup.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <!-- logo -->
+             <div class="logo">
+                <img src="/BotaniQ/frontend/public/botaniQ_Logo.png" alt="" srcset="">
+                <p>Turn Plants Into Art - You’re the Creator </p>
+             </div>
+          <div class="user">
+            <!-- name -->
+            <label for="name">Enter your Name:</label>
+           <div class="naming">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+              </svg>
+            <input type="text" name="name" id="name" placeholder="enter your name">
+           </div>
+          </div>
+          <!-- email -->
+          <div class="credentials">
+            <label for="email">Enter your email:</label>
+            <div class="electronicMail">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                  </svg>
+                <input type="email" name="" id="email" placeholder="abc@gmail.com">
+            </div>
+          </div>
+          <!-- password -->
+          <div class="lock">
+            <label for="password">Enter your password:</label>
+            <div class="safe">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                  </svg>
+                <input type="password" name="password" id="password" placeholder="make your secret key">
+            </div>
+        </div>
+        <!-- already have an account -->
+         <div class="member">Already a member? <span>Login here</span></div>
+         <!-- signup button -->
+          <div class="account">
+            <button type="button" id="sign-up-button">Create an Account</button>
+          </div>
+        </div>
+        
+    </div>
+</body>
+</html>
