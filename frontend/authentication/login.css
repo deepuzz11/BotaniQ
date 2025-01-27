@@ -10,12 +10,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-.logo img{
-    width: 40%;
-}
-.logo p{
-    font-weight: bold;
-}
 .container {
     width: 100%;
     max-width: 450px; 
@@ -24,7 +18,9 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+.logo img{
+    width: 40%;
+}
 .form {
     background-color: white;
     width: 100%;
@@ -33,8 +29,6 @@ body {
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
-
-.user,
 .credentials,
 .lock {
     margin-bottom: 20px; 
@@ -42,36 +36,15 @@ body {
     width: 80%; 
     margin: 0 auto 20px auto; 
 }
-.user:focus-within, 
 .credentials:focus-within, 
 .lock:focus-within {
     border-bottom: 2px solid rgb(38, 96, 38);
 }
-
-.user:focus-within svg, 
 .credentials:focus-within svg, 
 .lock:focus-within svg {
     fill: #4d9737; 
     transition: fill 0.3s ease-in-out;
 }
-
-label {
-    display: block;
-    text-align: left;
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.naming,
-.electronicMail,
-.safe {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-input[type="text"],
 input[type="email"],
 input[type="password"] {
     border-style: none;
@@ -80,20 +53,16 @@ input[type="password"] {
     padding: 5px; 
     font-size: 14px; 
 }
+label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
 
 input::placeholder {
     color: #aaa; 
-}
-
-.member {
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-.member span {
-    color: rgb(22, 61, 191);
-    cursor: pointer;
-    text-decoration: underline; 
 }
 
 .account {
@@ -116,10 +85,29 @@ input::placeholder {
     transition: background-color 0.3s ease; 
     margin-bottom: 20px;
 }
-a{
-    text-decoration: none;
-}
-
 .account button:hover {
     background-color: rgb(28, 70, 28); 
+}
+button a{
+    text-decoration: none;
+    color: white;
+}
+button a:hover{
+    text-decoration: none;
+    outline: none;
+    color: white;
+}
+.forgetPass{
+    display: flex;
+    justify-content: end;
+}
+.forgetPass a{
+   
+font-size:13px
+}
+.logo p{
+    font-weight: bold;
+}
+.new p, .new a{
+font-size: 12px;
 }
