@@ -1,3 +1,10 @@
+:root{
+    --themeColor :#4d9737;
+    --themeShade : rgb(38, 96, 38);
+    --basic : white;
+    --inputShade : #aaa;
+    --labelShade : #333;
+}
 body {
     font-family: 'Poppins', sans-serif;
     background-image: url("assets/plant.jpg");
@@ -22,7 +29,7 @@ body {
     width: 40%;
 }
 .form {
-    background-color: white;
+    background-color: var(--basic);
     width: 100%;
     padding: 20px;
     border-radius: 10px;
@@ -38,11 +45,11 @@ body {
 }
 .credentials:focus-within, 
 .lock:focus-within {
-    border-bottom: 2px solid rgb(38, 96, 38);
+    border-bottom: 2px solid var(--themeShade);
 }
 .credentials:focus-within svg, 
 .lock:focus-within svg {
-    fill: #4d9737; 
+    fill: var(--themeColor); 
     transition: fill 0.3s ease-in-out;
 }
 input[type="email"],
@@ -58,11 +65,11 @@ label {
     text-align: left;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--labelShade);
 }
 
 input::placeholder {
-    color: #aaa; 
+    color: var(--inputShade); 
 }
 
 .account {
@@ -73,10 +80,10 @@ input::placeholder {
 }
 
 .account button {
-    background-color: #4d9737;
+    background-color: var(--themeColor);
     border-radius: 20px;
     border: none;
-    color: white;
+    color: var(--basic);
     width: 80%;
     height: 45px;
     font-size: 16px; 
@@ -86,16 +93,16 @@ input::placeholder {
     margin-bottom: 20px;
 }
 .account button:hover {
-    background-color: rgb(28, 70, 28); 
+    background-color: var(--themeShade); 
 }
 button a{
     text-decoration: none;
-    color: white;
+    color: var(--basic)
 }
 button a:hover{
     text-decoration: none;
     outline: none;
-    color: white;
+    color: var(--basic);
 }
 .forgetPass{
     display: flex;
@@ -119,6 +126,6 @@ font-size: 12px;
 
 }
 .toast-header{
-    background-color:  #4d9737;
-    color:white;
+    background-color:  var(--themeColor);
+    color:var(--basic);
 }
