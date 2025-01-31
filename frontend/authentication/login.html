@@ -46,6 +46,40 @@
                 <p>New Member <a href="/BotaniQ/frontend/authentication/signUp.html">SignUp here!</a></p>
             </div>
         </div>
+        <!-- toast -->
+        <div class="toast success" role="alert">
+            <div class="toast-header">
+              <strong class="mr-auto">BotaniQ</strong>
+            </div>
+            <div class="toast-body">
+              Login successfully
+            </div>
+          </div>
     </div>
+    <script>
+        let loginButton = document.getElementById('login-button');
+
+loginButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    let emailInput = document.getElementById('email');
+    let passwordInput = document.getElementById('password');
+    
+    if ( email.value && password.value) {
+                // Toast show karne ka function
+                $('.toast').toast({ delay: 3000 }); // 3 sec delay
+                $('.toast').toast('show');
+
+                // Input fields ko clear karna
+                name.value = '';
+                email.value = '';
+                password.value = '';
+            } else {
+                alert("Please fill all fields!");
+            }
+
+});
+
+    </script>
 </body>
 </html>

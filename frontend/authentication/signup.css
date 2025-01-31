@@ -33,6 +33,17 @@ body {
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 250px;
+
+}
+.toast-header{
+    background-color:  #4d9737;
+    color:white;
+}
 
 .user,
 .credentials,

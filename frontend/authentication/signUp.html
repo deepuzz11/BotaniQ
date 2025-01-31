@@ -55,7 +55,40 @@
             <button type="button" id="sign-up-button">Create an Account</button>
           </div>
         </div>
+        <!-- toast -->
+        <div class="toast success" role="alert">
+            <div class="toast-header">
+              <strong class="mr-auto">BotaniQ</strong>
+            </div>
+            <div class="toast-body">
+              Login successfully
+            </div>
+          </div>
         
     </div>
+   <!-- logic  -->
+    <script>
+        let signUp = document.getElementById('sign-up-button');
+signUp.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById('name');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    if (name.value && email.value && password.value) {
+                // Toast show karne ka function
+                $('.toast').toast({ delay: 3000 }); // 3 sec delay
+                $('.toast').toast('show');
+
+                // Input fields ko clear karna
+                name.value = '';
+                email.value = '';
+                password.value = '';
+            } else {
+                alert("Please fill all fields!");
+            }
+});
+
+    </script>
 </body>
 </html>
