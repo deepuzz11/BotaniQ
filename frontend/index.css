@@ -1,3 +1,8 @@
+:root{
+    --themeColor :#4d9737;
+    --themeShade : rgb(38, 96, 38);
+    --basic : white;
+}
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +15,7 @@ body {
 }
 
 header {
-    background-color: white;
+    background-color: var(--basic);
     padding: 10px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -32,7 +37,7 @@ nav {
 }
 
 .heading h1 {
-    color: rgb(38, 96, 38);
+    color: var(--themeColor);
     font-size: 2rem;
     font-weight: 600;
 }

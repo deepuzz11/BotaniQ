@@ -1,3 +1,10 @@
+:root{
+    --themeColor :#4d9737;
+    --themeShade : rgb(38, 96, 38);
+    --basic : white;
+    --inputShade : #aaa;
+    --labelShade : #333;
+}
 body {
     font-family: 'Poppins', sans-serif;
     background-image: url("assets/plant.jpg");
@@ -26,7 +33,7 @@ body {
 }
 
 .form {
-    background-color: white;
+    background-color: var(--basic);
     width: 100%;
     padding: 20px;
     border-radius: 10px;
@@ -41,8 +48,8 @@ body {
 
 }
 .toast-header{
-    background-color:  #4d9737;
-    color:white;
+    background-color:  var(--themeColor);
+    color:var(--basic);
 }
 
 .user,
@@ -56,13 +63,13 @@ body {
 .user:focus-within, 
 .credentials:focus-within, 
 .lock:focus-within {
-    border-bottom: 2px solid rgb(38, 96, 38);
+    border-bottom: 2px solid var(--themeShade);
 }
 
 .user:focus-within svg, 
 .credentials:focus-within svg, 
 .lock:focus-within svg {
-    fill: #4d9737; 
+    fill: var(--themeColor); 
     transition: fill 0.3s ease-in-out;
 }
 
@@ -71,7 +78,7 @@ label {
     text-align: left;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--labelShade)
 }
 
 .naming,
@@ -93,7 +100,7 @@ input[type="password"] {
 }
 
 input::placeholder {
-    color: #aaa; 
+    color: var(--inputShade) 
 }
 
 .member {
@@ -115,10 +122,10 @@ input::placeholder {
 }
 
 .account button {
-    background-color: #4d9737;
+    background-color: var(--themeColor);
     border-radius: 20px;
     border: none;
-    color: white;
+    color: var(--basic);
     width: 80%;
     height: 45px;
     font-size: 16px; 
@@ -132,5 +139,5 @@ a{
 }
 
 .account button:hover {
-    background-color: rgb(28, 70, 28); 
+    background-color: var(--themeShade); 
 }
