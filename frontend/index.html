@@ -37,7 +37,7 @@
 
         <!-- Popup for plant registration -->
         <div id="plantPopup" class="popup fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-            <div class="popupContent relative bg-white p-6 mb-2 mt-2 rounded-lg  max-w-2xl mx-auto shadow-lg">
+            <div class="popupContent relative bg-white p-6 mb-2 mt-2 rounded-lg max-w-2xl mx-auto shadow-lg">
                 <span id="closePopup" class="close absolute top-2 right-2 text-2xl cursor-pointer">&times;</span>
                 <h2 class="text-2xl font-semibold text-green-700">Enter Plant Registration Details</h2>
                 <form id="plantForm" class="mt-2 space-y-3">
@@ -76,16 +76,37 @@
                 <h1 class="text-4xl font-semibold text-gray-800">My Plants</h1>
             </div>
             <div class="gallerySlider flex justify-between items-center mt-6">
-                <button class="px-4 py-2 bg-green-700 text-white rounded-full">&lt;</button>
-                <div class="card w-72 bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="..." class="w-full h-48 object-cover" alt="Plant Image">
+                <button class="px-4 py-2 bg-green-700 text-white rounded-full" id="previous">&lt;</button>
+
+                <!-- Temporary Cards (Can be dynamically loaded) -->
+                <div class="card w-72 bg-white shadow-md rounded-lg overflow-hidden" id="card1">
+                    <img src="https://via.placeholder.com/200" class="w-full h-48 object-cover" alt="Plant Image">
                     <div class="card-body p-4">
-                      <h5 class="card-title text-xl font-semibold">Card title</h5>
-                      <p class="card-text text-gray-600">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn bg-green-700 text-white py-2 px-4 rounded-md">Go somewhere</a>
+                        <h5 class="card-title text-xl font-semibold">Card 1</h5>
+                        <p class="card-text text-gray-600">This is a placeholder description for card 1.</p>
+                        <a href="#" class="btn bg-green-700 text-white py-2 px-4 rounded-md">Go somewhere</a>
                     </div>
-                  </div>
-                <button class="px-4 py-2 bg-green-700 text-white rounded-full">&gt;</button>
+                </div>
+
+                <div class="card w-72 bg-white shadow-md rounded-lg overflow-hidden" id="card2">
+                    <img src="https://via.placeholder.com/200" class="w-full h-48 object-cover" alt="Plant Image">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-xl font-semibold">Card 2</h5>
+                        <p class="card-text text-gray-600">This is a placeholder description for card 2.</p>
+                        <a href="#" class="btn bg-green-700 text-white py-2 px-4 rounded-md">Go somewhere</a>
+                    </div>
+                </div>
+
+                <div class="card w-72 bg-white shadow-md rounded-lg overflow-hidden" id="card3">
+                    <img src="https://via.placeholder.com/200" class="w-full h-48 object-cover" alt="Plant Image">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-xl font-semibold">Card 3</h5>
+                        <p class="card-text text-gray-600">This is a placeholder description for card 3.</p>
+                        <a href="#" class="btn bg-green-700 text-white py-2 px-4 rounded-md">Go somewhere</a>
+                    </div>
+                </div>
+
+                <button class="px-4 py-2 bg-green-700 text-white rounded-full" id="next">&gt;</button>
             </div>
         </section>
       </main>
@@ -105,6 +126,7 @@
     </div>
     
     <script>
+        // Popup handling
         document.getElementById('about-plants').addEventListener('click', function() {
             document.getElementById('plantPopup').classList.remove('hidden');
         });
@@ -127,13 +149,39 @@
                 soilMoisture: document.getElementById('soilMoisture').value,
                 sunlightExposure: document.getElementById('sunlightExposure').value,
                 temperature: document.getElementById('temperature').value,
-                careTips: document.getElementById('careTips').value,
                 plantImage: document.getElementById('plantImage').files[0]
             };
-            console.log('Plant Registration Details:', plantDetails);
+            console.log('Plant Details:', plantDetails);
             document.getElementById('plantPopup').classList.add('hidden');
-            document.getElementById('plantForm').reset();
         });
+
+        // Carousel Logic
+        let currentIndex = 0;
+        const cards = document.querySelectorAll('.card');
+        const previousBtn = document.getElementById('previous');
+        const nextBtn = document.getElementById('next');
+        
+        function updateCarousel() {
+            cards.forEach((card, index) => {
+                card.classList.add('hidden');
+                if (index === currentIndex) {
+                    card.classList.remove('hidden');
+                }
+            });
+        }
+
+        previousBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : cards.length - 1;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+
+        updateCarousel(); // Initialize the carousel
     </script>
+
 </body>
 </html>
