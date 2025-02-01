@@ -4,82 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BotaniQ: Plant Care DashBoard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="login.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
 </head>
-<body>
-    <div class="container">
-        <div class="form">
-            <!-- logo -->
-            <div class="logo">
-                <img src="/BotaniQ/frontend/public/botaniQ_Logo.png" alt="" srcset="">
-                <p>Turn Plants Into Art - You’re the Creator </p>
-             </div>
-            <div class="credentials">
-                <label for="email">Enter your email:</label>
-                <div class="electronicMail">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
-                      </svg>
-                    <input type="email" name="" id="email" placeholder="abc@gmail.com">  
-                </div>
+<body class="bg-cover bg-center" style="background-image: url('assets/plant.jpg');">
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+            <!-- Logo -->
+            <div class="text-center mb-4">
+                <img src="/BotaniQ/frontend/public/botaniQ_Logo.png" alt="Logo" class="w-1/2 mx-auto mb-2">
+                <p class="font-bold text-lg">Turn Plants Into Art - You’re the Creator</p>
             </div>
-            <div class="lock">
-                <label for="password">Enter your password</label>
-                <div class="safe">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
-                      </svg>
-                    <input type="password" name="password" id="password" placeholder="enter your secret key">
-                </div>
-            </div>
-            <div class="forgetPass">
-                <a href="#">ForgetPassword?</a>
-            </div>
-            <div class="account">
-                <button type="button" id="login-button"><a href="/BotaniQ/frontend/index.html">Login</a></button>
-            </div>
-            <div class="new">
-                <p>New Member <a href="/BotaniQ/frontend/authentication/signUp.html">SignUp here!</a></p>
+         <!-- email -->
+         <div class="mb-6">
+            <label for="email" class="block text-sm font-medium text-gray-700">Enter your email:</label>
+            <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill text-green-600 mr-2" viewBox="0 0 16 16">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                </svg>
+                <input type="email" id="email" placeholder="abc@gmail.com" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
             </div>
         </div>
-        <!-- toast -->
-        <div class="toast success" role="alert">
-            <div class="toast-header">
-              <strong class="mr-auto">BotaniQ</strong>
+
+        <!-- password -->
+        <div class="mb-6">
+            <label for="password" class="block text-sm font-medium text-gray-700">Enter your password:</label>
+            <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill text-green-600 mr-2" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                </svg>
+                <input type="password" id="password" placeholder="Make your secret key" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
+            </div>
+        </div>
+
+            <!-- Forget Password -->
+            <div class="text-right mb-4">
+                <a href="#" class="text-sm text-green-600 hover:text-green-800">Forget Password?</a>
+            </div>
+
+            <!-- Login Button -->
+            <div class="mb-4">
+                <button id="login-button" class="w-full bg-green-700 text-white py-2 rounded-[10px] font-semibold hover:bg-green-700 transition-all duration-300">
+                    <a href="/BotaniQ/frontend/index.html">Login</a>
+                </button>
+            </div>
+
+            <!-- New Member Link -->
+            <div class="text-center">
+                <p class="text-sm">New Member? <a href="/BotaniQ/frontend/authentication/signUp.html" class="text-green-600 hover:text-green-800">SignUp here!</a></p>
+            </div>
+        </div>
+
+        <!-- Toast -->
+        <div class="toast fixed top-4 right-4 hidden" role="alert">
+            <div class="toast-header bg-green-600 text-white">
+                <strong class="mr-auto">BotaniQ</strong>
             </div>
             <div class="toast-body">
-              Login successfully
+                Login successfully
             </div>
-          </div>
+        </div>
     </div>
+
     <script>
         let loginButton = document.getElementById('login-button');
+        let emailDiv = document.getElementById('email-div');
+        let passwordDiv = document.getElementById('password-div');
 
-loginButton.addEventListener('click', function (e) {
-    e.preventDefault();
-    
-    let emailInput = document.getElementById('email');
-    let passwordInput = document.getElementById('password');
-    
-    if ( email.value && password.value) {
-                // Toast show karne ka function
-                $('.toast').toast({ delay: 3000 }); // 3 sec delay
-                $('.toast').toast('show');
+        emailDiv.addEventListener('click', function() {
+            document.getElementById('email-icon').classList.add('icon-focus');
+        });
 
-                // Input fields ko clear karna
-                name.value = '';
-                email.value = '';
-                password.value = '';
+        passwordDiv.addEventListener('click', function() {
+            document.getElementById('password-icon').classList.add('icon-focus');
+        });
+
+        loginButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            let emailInput = document.getElementById('email');
+            let passwordInput = document.getElementById('password');
+            
+            if (emailInput.value && passwordInput.value) {
+                // Show toast
+                document.querySelector('.toast').classList.remove('hidden');
+                setTimeout(() => {
+                    document.querySelector('.toast').classList.add('hidden');
+                }, 3000);
+
+                // Clear inputs
+                emailInput.value = '';
+                passwordInput.value = '';
             } else {
                 alert("Please fill all fields!");
             }
-
-});
-
+        });
+   
     </script>
 </body>
 </html>

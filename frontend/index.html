@@ -4,22 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BotaniQ</title>
-    <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-      <header>
-        <nav>
+<body class="bg-gray-200 font-sans">
+
+    <div class="container flex flex-col min-h-screen">
+      <header class="bg-white p-4 shadow-md">
+        <nav class="flex items-center">
             <!-- logo -->
              <div class="logo">
-                <img src="/BotaniQ/frontend/public/botaniQ_Logo.png" alt="" srcset="">
+                <img src="/BotaniQ/frontend/public/botaniQ_Logo.png" alt="BotaniQ Logo" class="h-12">
              </div>
-             <div class="heading">
-                <h1>BotaniQ</h1>
+             <div class="heading ml-4">
+                <h1 class="text-4xl font-semibold text-green-700">BotaniQ</h1>
              </div>
         </nav>
       </header>
+      <main class="flex-1 p-6">
+        <div class="AboutUs bg-white my-8 flex justify-between p-6 rounded-lg shadow-md">
+            <div class="heading w-9/12">
+                <h1 class="text-4xl font-semibold text-gray-800">About Us</h1>
+                <p class="text-lg text-gray-600 mt-4">The Plant Care Dashboard is a simple, intuitive web application designed to help users monitor and care for their plants. It allows users to track plant health through parameters like soil moisture, sunlight exposure, and temperature. It also offers reminders, care tips, and progress tracking. </p>
+                <div class="PlantButton mt-6">
+                    <button id="about-plants" class="bg-green-700 text-white py-2 px-4 rounded-lg text-lg font-semibold">
+                        About Plants
+                    </button>
+                </div>
+            </div>
+            <div class="image w-3/12"></div>
+        </div>
+
+        <!-- Popup for plant registration -->
+        <div id="plantPopup" class="popup fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+            <div class="popupContent relative bg-white p-6 mb-2 mt-2 rounded-lg  max-w-2xl mx-auto shadow-lg">
+                <span id="closePopup" class="close absolute top-2 right-2 text-2xl cursor-pointer">&times;</span>
+                <h2 class="text-2xl font-semibold text-green-700">Enter Plant Registration Details</h2>
+                <form id="plantForm" class="mt-2 space-y-3">
+                    <label for="plantName" class="block text-gray-700">Plant Name:</label>
+                    <input type="text" id="plantName" name="plantName" class="w-full p-2 border border-gray-300 rounded-md" required>
+
+                    <label for="plantType" class="block text-gray-700">Plant Type:</label>
+                    <select id="plantType" name="plantType" class="w-full p-2 border border-gray-300 rounded-md" required>
+                        <option value="">Select Type</option>
+                        <option value="Indoor">Indoor</option>
+                        <option value="Outdoor">Outdoor</option>
+                    </select>
+
+                    <label for="plantImage" class="block text-gray-700">Plant Image:</label>
+                    <input type="file" id="plantImage" name="plantImage" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md" required>
+
+                    <label for="soilMoisture" class="block text-gray-700">Soil Moisture:</label>
+                    <input type="text" id="soilMoisture" name="soilMoisture" class="w-full p-2 border border-gray-300 rounded-md" required>
+
+                    <label for="sunlightExposure" class="block text-gray-700">Sunlight Exposure:</label>
+                    <input type="text" id="sunlightExposure" name="sunlightExposure" class="w-full p-2 border border-gray-300 rounded-md" required>
+
+                    <label for="temperature" class="block text-gray-700">Temperature (°C):</label>
+                    <input type="number" id="temperature" name="temperature" class="w-full p-2 border border-gray-300 rounded-md" required>
+
+                    <button type="submit" id="saveDetails" class="bg-green-700 text-white py-2 px-4 rounded-md w-full mt-4">
+                        Save Details
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Plant Gallery Section -->
+        <section class="gallery bg-white p-6 rounded-lg shadow-md">
+            <div class="heading">
+                <h1 class="text-4xl font-semibold text-gray-800">My Plants</h1>
+            </div>
+            <div class="gallerySlider flex justify-between items-center mt-6">
+                <button class="px-4 py-2 bg-green-700 text-white rounded-full">&lt;</button>
+                <div class="card w-72 bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="..." class="w-full h-48 object-cover" alt="Plant Image">
+                    <div class="card-body p-4">
+                      <h5 class="card-title text-xl font-semibold">Card title</h5>
+                      <p class="card-text text-gray-600">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn bg-green-700 text-white py-2 px-4 rounded-md">Go somewhere</a>
+                    </div>
+                  </div>
+                <button class="px-4 py-2 bg-green-700 text-white rounded-full">&gt;</button>
+            </div>
+        </section>
+      </main>
+      
+      <footer class="bg-green-700 text-white py-6">
+        <div class="footerMain flex justify-between items-center max-w-screen-lg mx-auto px-4">
+            <div class="copyRight text-left text-sm">
+                <p>&copy; 2025 BotaniQ. All rights reserved.</p>
+            </div>
+            <div class="socialLinks flex">
+                <a href="https://github.com/deepuzz11/BotaniQ" target="_blank" class="ml-4 hover:underline">GitHub</a>
+                <a href="https://www.youtube.com/" target="_blank" class="ml-4 hover:underline">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
     </div>
+    
+    <script>
+        document.getElementById('about-plants').addEventListener('click', function() {
+            document.getElementById('plantPopup').classList.remove('hidden');
+        });
+
+        document.getElementById('closePopup').addEventListener('click', function() {
+            document.getElementById('plantPopup').classList.add('hidden');
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('plantPopup')) {
+                document.getElementById('plantPopup').classList.add('hidden');
+            }
+        });
+
+        document.getElementById('plantForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const plantDetails = {
+                plantName: document.getElementById('plantName').value,
+                plantType: document.getElementById('plantType').value,
+                soilMoisture: document.getElementById('soilMoisture').value,
+                sunlightExposure: document.getElementById('sunlightExposure').value,
+                temperature: document.getElementById('temperature').value,
+                careTips: document.getElementById('careTips').value,
+                plantImage: document.getElementById('plantImage').files[0]
+            };
+            console.log('Plant Registration Details:', plantDetails);
+            document.getElementById('plantPopup').classList.add('hidden');
+            document.getElementById('plantForm').reset();
+        });
+    </script>
 </body>
 </html>
