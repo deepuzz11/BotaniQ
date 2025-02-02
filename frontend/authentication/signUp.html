@@ -32,39 +32,33 @@
         </div>
 
         <div class="mb-4">
-          <label for="name" class="block text-sm font-medium text-gray-700"
-            >Enter your Name:</label
-          >
-          <input
-            type="text"
-            id="name"
-            placeholder="Enter your name"
-            class="w-full p-2 border border-gray-300 rounded"
-          />
+          <label for="password" class="block text-sm font-medium text-gray-700">Enter your Name:</label>
+          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill text-green-600 mr-2" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            </svg>
+              <input type="text" id="name" placeholder="enter your name here" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
+          </div>
         </div>
 
         <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-gray-700"
-            >Enter your Email:</label
-          >
-          <input
-            type="email"
-            id="email"
-            placeholder="abc@gmail.com"
-            class="w-full p-2 border border-gray-300 rounded"
-          />
+          <label for="email" class="block text-sm font-medium text-gray-700">Enter your email:</label>
+            <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill text-green-600 mr-2" viewBox="0 0 16 16">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                </svg>
+                <input type="email" id="email" placeholder="abc@gmail.com" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
+            </div>
         </div>
 
         <div class="mb-4">
-          <label for="password" class="block text-sm font-medium text-gray-700"
-            >Enter your Password:</label
-          >
-          <input
-            type="password"
-            id="password"
-            placeholder="Make your secret key"
-            class="w-full p-2 border border-gray-300 rounded"
-          />
+          <label for="password" class="block text-sm font-medium text-gray-700">Enter your password:</label>
+            <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill text-green-600 mr-2" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                </svg>
+                <input type="password" id="password" placeholder="your secret key" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
+            </div>
         </div>
 
         <div class="flex justify-center">
@@ -155,6 +149,6 @@
           }
         });
     </script>
-    
+
   </body>
 </html>
