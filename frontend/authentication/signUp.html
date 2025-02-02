@@ -1,104 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BotaniQ: Plant Care Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body class="font-sans bg-cover bg-center h-screen" style="background-image: url('assets/plant.jpg');">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="font-sans bg-cover bg-center h-screen"
+    style="background-image: url('assets/plant.jpg')"
+  >
     <div class="flex justify-center items-center h-full">
-        <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-            <!-- logo -->
-            <div class="text-center mb-4">
-                <img src="/BotaniQ/frontend/public/botaniQ_Logo.png" class="w-1/2 mx-auto mb-2">
-                <p class="font-bold text-lg">Turn Plants Into Art - You’re the Creator</p>
-            </div>
+      <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+        <!-- Logo -->
+        <div class="text-center mb-4">
+          <img
+            src="/BotaniQ/frontend/public/botaniQ_Logo.png"
+            class="w-1/2 mx-auto mb-2"
+          />
+          <p class="font-bold text-lg">
+            Turn Plants Into Art - You’re the Creator
+          </p>
+        </div>
 
-            <!-- user name -->
-            <div class="mb-6">
-                <label for="name" class="block text-sm font-medium text-gray-700">Enter your Name:</label>
-                <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill text-green-600 mr-2" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                    </svg>
-                    <input type="text" id="name" placeholder="Enter your name" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
-                </div>
-            </div>
+        <!-- Name Input -->
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-medium text-gray-700"
+            >Enter your Name:</label
+          >
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            class="w-full p-2 border border-gray-300 rounded"
+          />
+        </div>
 
-            <!-- email -->
-            <div class="mb-6">
-                <label for="email" class="block text-sm font-medium text-gray-700">Enter your email:</label>
-                <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill text-green-600 mr-2" viewBox="0 0 16 16">
-                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
-                    </svg>
-                    <input type="email" id="email" placeholder="abc@gmail.com" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
-                </div>
-            </div>
+        <!-- Email Input -->
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-700"
+            >Enter your Email:</label
+          >
+          <input
+            type="email"
+            id="email"
+            placeholder="abc@gmail.com"
+            class="w-full p-2 border border-gray-300 rounded"
+          />
+        </div>
 
-            <!-- password -->
-            <div class="mb-6">
-                <label for="password" class="block text-sm font-medium text-gray-700">Enter your password:</label>
-                <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill text-green-600 mr-2" viewBox="0 0 16 16">
-                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
-                    </svg>
-                    <input type="password" id="password" placeholder="Make your secret key" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
-                </div>
-            </div>
+        <!-- Password Input -->
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-medium text-gray-700"
+            >Enter your Password:</label
+          >
+          <input
+            type="password"
+            id="password"
+            placeholder="Make your secret key"
+            class="w-full p-2 border border-gray-300 rounded"
+          />
+        </div>
 
-            <!-- sign up button -->
-            <div class="flex justify-center">
-                <button id="sign-up-button" class="w-4/5 bg-green-700 text-white py-2 rounded-[15px]  hover:bg-green-600 transition duration-300">
-                    Create an Account
-                </button>
-            </div>
+        <!-- Sign Up Button -->
+        <div class="flex justify-center">
+          <button
+            id="sign-up-button"
+            class="w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-600 transition duration-300"
+          >
+            Create an Account
+          </button>
+        </div>
 
-             <!-- already a member -->
-             <div class="text-sm mt-3 mb-6 text-center">
-                Already a member? 
-                <span class="">
-                    <a href="/BotaniQ/frontend/authentication/login.html" class="text-green-600 hover:text-green-800">Login here</a>
-                </span>
-            </div>
+        <!-- Already a Member? -->
+        <div class="text-sm mt-3 text-center">
+          Already a member?
+          <a href="login.html" class="text-green-600 hover:text-green-800"
+            >Login here</a
+          >
+        </div>
 
-            <!-- toast -->
-            <div class="toast fixed top-5 right-5 w-64" role="alert">
-                <div class="toast-header bg-green-500 text-white">
-                    <strong class="mr-auto">BotaniQ</strong>
-                </div>
-                <div class="toast-body">
-                    Login successfully
-                </div>
+        <!-- Toast Notification -->
+        <!-- Toast -->
+         <div class="toast fixed top-4 right-4 hidden" role="alert">
+            <div class="toast-body bg-green-600 text-white w-[200px] p-2 rounded-sm">
+                Create an Account successfully
             </div>
         </div>
+      </div>
     </div>
 
-    <script>
-        let signUp = document.getElementById('sign-up-button');
-        signUp.addEventListener('click', function(e) {
-            e.preventDefault();
+    <!-- Firebase Integration -->
+    <script type="module">
+      // Firebase SDKs
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
-            let name = document.getElementById('name');
-            let email = document.getElementById('email');
-            let password = document.getElementById('password');
-            if (name.value && email.value && password.value) {
-                // Toast show karne ka function
-                $('.toast').toast({ delay: 3000 }); // 3 sec delay
-                $('.toast').toast('show');
+      // Firebase Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAaZFYj9a__-8jOG-bZEaaYIvRwWdbjX7Q",
+        authDomain: "botaniq-678f0.firebaseapp.com",
+        projectId: "botaniq-678f0",
+        storageBucket: "botaniq-678f0.appspot.com",
+        messagingSenderId: "434849488146",
+        appId: "1:434849488146:web:caa7b2104d0ed356e6a7cb",
+        measurementId: "G-1FXB4D064J",
+      };
 
-                // Input fields ko clear karna
-                name.value = '';
-                email.value = '';
-                password.value = '';
-            } else {
-                alert("Please fill all fields!");
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Sign Up Function
+      document
+        .getElementById("sign-up-button")
+        .addEventListener("click", async (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+
+          if (name && email && password) {
+            try {
+              const userCredential = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+              );
+              console.log("User Created:", userCredential.user);
+
+               // Show toast message
+               document.querySelector('.toast').classList.remove('hidden');
+                    setTimeout(() => {
+                        document.querySelector('.toast').classList.add('hidden');
+                    }, 3000);
+
+              // Clear input fields
+              document.getElementById("name").value = "";
+              document.getElementById("email").value = "";
+              document.getElementById("password").value = "";
+
+              // Redirect after 2 seconds
+              setTimeout(() => {
+                   window.location.href = "../index.html"; 
+            }, 2000);
+            } catch (error) {
+              alert(error.message);
             }
+          } else {
+            alert("Please fill all fields!");
+          }
         });
     </script>
-</body>
+  </body>
 </html>
