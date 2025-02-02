@@ -34,7 +34,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill text-green-600 mr-2" viewBox="0 0 16 16">
                     <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
                 </svg>
-                <input type="password" id="password" placeholder="Make your secret key" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
+                <input type="password" id="password" placeholder="your secret key" class="w-full p-2 text-sm text-gray-700 outline-none bg-transparent" />
             </div>
         </div>
 
@@ -58,49 +58,67 @@
 
         <!-- Toast -->
         <div class="toast fixed top-4 right-4 hidden" role="alert">
-            <div class="toast-header bg-green-600 text-white">
-                <strong class="mr-auto">BotaniQ</strong>
-            </div>
-            <div class="toast-body">
+            <div class="toast-body bg-green-600 text-white w-[120px] p-2 rounded-sm">
                 Login successfully
             </div>
         </div>
     </div>
 
-    <script>
-        let loginButton = document.getElementById('login-button');
-        let emailDiv = document.getElementById('email-div');
-        let passwordDiv = document.getElementById('password-div');
-
-        emailDiv.addEventListener('click', function() {
-            document.getElementById('email-icon').classList.add('icon-focus');
-        });
-
-        passwordDiv.addEventListener('click', function() {
-            document.getElementById('password-icon').classList.add('icon-focus');
-        });
-
-        loginButton.addEventListener('click', function (e) {
+    <script type="module">
+        // Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+    
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAaZFYj9a__-8jOG-bZEaaYIvRwWdbjX7Q",
+            authDomain: "botaniq-678f0.firebaseapp.com",
+            projectId: "botaniq-678f0",
+            storageBucket: "botaniq-678f0.appspot.com",
+            messagingSenderId: "434849488146",
+            appId: "1:434849488146:web:caa7b2104d0ed356e6a7cb",
+            measurementId: "G-1FXB4D064J"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+    
+        // Login Function
+        document.getElementById('login-button').addEventListener('click', async (e) => {
             e.preventDefault();
             
-            let emailInput = document.getElementById('email');
-            let passwordInput = document.getElementById('password');
+            let emailInput = document.getElementById('email').value.trim();
+            let passwordInput = document.getElementById('password').value.trim();
             
-            if (emailInput.value && passwordInput.value) {
-                // Show toast
-                document.querySelector('.toast').classList.remove('hidden');
-                setTimeout(() => {
-                    document.querySelector('.toast').classList.add('hidden');
-                }, 3000);
-
-                // Clear inputs
-                emailInput.value = '';
-                passwordInput.value = '';
+            if (emailInput && passwordInput) {
+                try {
+                    const userCredential = await signInWithEmailAndPassword(auth, emailInput, passwordInput);
+                    console.log("User Logged In:", userCredential.user);
+    
+                    // Show toast message
+                    document.querySelector('.toast').classList.remove('hidden');
+                    setTimeout(() => {
+                        document.querySelector('.toast').classList.add('hidden');
+                    }, 3000);
+    
+                    // Clear inputs
+                    document.getElementById('email').value = '';
+                    document.getElementById('password').value = '';
+    
+                    // Redirect after successful login
+                    setTimeout(() => {
+                        window.location.href = "../index.html"; // Change path if needed
+                    }, 2000);
+    
+                } catch (error) {
+                    alert(error.message);
+                }
             } else {
                 alert("Please fill all fields!");
             }
         });
-   
     </script>
+    
 </body>
 </html>
