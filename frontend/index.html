@@ -165,6 +165,36 @@
         });
 
     </script>
+    <!-- firebase -->
+    <script type="module">
+        // Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import {getAuth }from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+        // Firebase Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAaZFYj9a__-8jOG-bZEaaYIvRwWdbjX7Q",
+        authDomain: "botaniq-678f0.firebaseapp.com",
+        projectId: "botaniq-678f0",
+        storageBucket: "botaniq-678f0.appspot.com",
+        messagingSenderId: "434849488146",
+        appId: "1:434849488146:web:caa7b2104d0ed356e6a7cb",
+        measurementId: "G-1FXB4D064J",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const logout = document.getElementById('logout-btn');
+      logout.addEventListener('click', function() {
+            auth.signOut().then(() => {
+                console.log('User signed out');
+                // Optionally, redirect to login page
+                window.location.href = '/BotaniQ/frontend/authentication/login.html';
+            }).catch((error) => {
+                console.error('Error signing out: ', error);
+            });
+        });
+</script>  
 
 </body>
 </html>
