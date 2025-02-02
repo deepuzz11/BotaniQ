@@ -16,7 +16,7 @@
                 <img src="/BotaniQ/frontend/public/botaniQ_Logo.png" alt="Logo" class="w-1/2 mx-auto mb-2">
                 <p class="font-bold text-lg">Turn Plants Into Art - You’re the Creator</p>
             </div>
-         <!-- email -->
+
          <div class="mb-6">
             <label for="email" class="block text-sm font-medium text-gray-700">Enter your email:</label>
             <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
@@ -27,7 +27,6 @@
             </div>
         </div>
 
-        <!-- password -->
         <div class="mb-6">
             <label for="password" class="block text-sm font-medium text-gray-700">Enter your password:</label>
             <div class="flex items-center border-b-2 border-gray-300 focus-within:border-green-500">
@@ -38,12 +37,10 @@
             </div>
         </div>
 
-            <!-- Forget Password -->
             <div class="text-right mb-4">
                 <a href="#" class="text-sm text-green-600 hover:text-green-800">Forget Password?</a>
             </div>
 
-            <!-- Login Button -->
             <div class="mb-4">
                 <button id="login-button" class="w-full bg-green-700 text-white py-2 rounded-[10px] font-semibold hover:bg-green-700 transition-all duration-300">
                     <a href="/BotaniQ/frontend/index.html">Login</a>
@@ -102,13 +99,11 @@
                         document.querySelector('.toast').classList.add('hidden');
                     }, 3000);
     
-                    // Clear inputs
                     document.getElementById('email').value = '';
                     document.getElementById('password').value = '';
     
-                    // Redirect after successful login
                     setTimeout(() => {
-                        window.location.href = "../index.html"; // Change path if needed
+                        window.location.href = "../index.html"; 
                     }, 2000);
     
                 } catch (error) {

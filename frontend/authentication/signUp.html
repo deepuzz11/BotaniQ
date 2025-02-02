@@ -31,7 +31,6 @@
           </p>
         </div>
 
-        <!-- Name Input -->
         <div class="mb-4">
           <label for="name" class="block text-sm font-medium text-gray-700"
             >Enter your Name:</label
@@ -44,7 +43,6 @@
           />
         </div>
 
-        <!-- Email Input -->
         <div class="mb-4">
           <label for="email" class="block text-sm font-medium text-gray-700"
             >Enter your Email:</label
@@ -57,7 +55,6 @@
           />
         </div>
 
-        <!-- Password Input -->
         <div class="mb-4">
           <label for="password" class="block text-sm font-medium text-gray-700"
             >Enter your Password:</label
@@ -70,7 +67,6 @@
           />
         </div>
 
-        <!-- Sign Up Button -->
         <div class="flex justify-center">
           <button
             id="sign-up-button"
@@ -87,8 +83,6 @@
             >Login here</a
           >
         </div>
-
-        <!-- Toast Notification -->
         <!-- Toast -->
          <div class="toast fixed top-4 right-4 hidden" role="alert">
             <div class="toast-body bg-green-600 text-white w-[200px] p-2 rounded-sm">
@@ -141,18 +135,15 @@
               );
               console.log("User Created:", userCredential.user);
 
-               // Show toast message
                document.querySelector('.toast').classList.remove('hidden');
                     setTimeout(() => {
                         document.querySelector('.toast').classList.add('hidden');
                     }, 3000);
 
-              // Clear input fields
               document.getElementById("name").value = "";
               document.getElementById("email").value = "";
               document.getElementById("password").value = "";
 
-              // Redirect after 2 seconds
               setTimeout(() => {
                    window.location.href = "../index.html"; 
             }, 2000);
@@ -164,5 +155,6 @@
           }
         });
     </script>
+    
   </body>
 </html>
