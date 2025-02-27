@@ -265,21 +265,39 @@
           document.getElementById("plantPopup").classList.add("hidden");
         }
       });
-      document.addEventListener("DOMContentLoaded", function () {
-        const slider = document.querySelector(".gallerySlider");
-        const prevBtn = document.getElementById("Previous");
-        const nextBtn = document.getElementById("Next");
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   const slider = document.querySelector(".gallerySlider");
+      //   const prevBtn = document.getElementById("Previous");
+      //   const nextBtn = document.getElementById("Next");
 
-        const scrollAmount = 300;
+      //   const scrollAmount = 300;
 
-        nextBtn.addEventListener("click", function () {
-          slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        });
+      //   nextBtn.addEventListener("click", function () {
+      //     slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      //   });
 
-        prevBtn.addEventListener("click", function () {
-          slider.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-        });
-      });
+      //   prevBtn.addEventListener("click", function () {
+      //     slider.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      //   });
+      //   console.log(slider.children.length); // Yeh check karega kitne cards hain
+      // });
+      function loadGallery() {
+    const slider = document.querySelector(".gallerySlider");
+
+    for (let i = 0; i <= 5; i++) {
+        let div = document.createElement("div");
+        div.classList.add("w-40", "h-56", "bg-gray-200", "rounded-lg", "shadow-lg", "overflow-hidden", "flex", "justify-center", "items-center");
+        
+        let img = document.createElement("img");
+        img.src = "your-image-url.jpg"; // Replace with actual image path
+        img.classList.add("w-full", "h-full", "object-cover");
+        
+        div.appendChild(img);
+        slider.appendChild(div);
+    }
+}
+document.addEventListener("DOMContentLoaded", loadGallery);
+
     </script>
     <!-- firebase -->
 
@@ -306,7 +324,6 @@
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
       const db = getFirestore(app);
-      // const storageRef = firebase.storage().ref();
 
       // Logout functionality
       const logout = document.getElementById("logout-btn");
@@ -324,32 +341,55 @@
       });
       // Form submission to store plant details
       document
-        .getElementById("plantForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
+  .getElementById("plantForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-          const plantDetails = {
-            plantName: document.getElementById("plantName").value,
-            plantType: document.getElementById("plantType").value,
-            soilMoisture: document.getElementById("soilMoisture").value,
-            sunlightExposure: document.getElementById("sunlightExposure").value,
-            temperature: document.getElementById("temperature").value,
-            plantImage: document.getElementById("plantImage").files[0]
-              ? document.getElementById("plantImage").files[0].name
-              : null,
-          };
+    const plantImageFile = document.getElementById("plantImage").files[0];
+    if (!plantImageFile) {
+      return alert("Image not found!");
+    }
 
-          try {
-            // Store data in Firestore
-            const docRef = await addDoc(collection(db, "plants"), plantDetails);
-            console.log("Document written with ID: ", docRef.id);
+    try {
+      // Cloudinary Upload
+      const formData = new FormData();
+      formData.append("file", plantImageFile);
+      formData.append("upload_preset", "BotaniQ");
 
-            // Hide the popup after submission
-            document.getElementById("plantPopup").classList.add("hidden");
-          } catch (e) {
-            console.error("Error adding document: ", e);
-          }
-        });
+      // ✅ Correct Cloudinary API Endpoint
+      const cloudinaryResponse = await fetch(
+        "https://api.cloudinary.com/v1_1/dszyp3pzz/image/upload", 
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+      const cloudinaryData = await cloudinaryResponse.json();
+      const imageUrl = cloudinaryData.secure_url;
+
+      // Plant Details Object
+      const plantDetails = {
+        plantName: document.getElementById("plantName").value,
+        plantType: document.getElementById("plantType").value,
+        soilMoisture: document.getElementById("soilMoisture").value,
+        sunlightExposure: document.getElementById("sunlightExposure").value,
+        temperature: document.getElementById("temperature").value,
+        plantImage: imageUrl
+      };
+
+      // Firestore Data Upload
+      const docRef = await addDoc(collection(db, "plants"), plantDetails);
+      console.log("Document written with ID: ", docRef.id);
+      console.log(plantDetails)
+      // Hide the popup after submission
+      document.getElementById("plantPopup").classList.add("hidden");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong! Please try again.");
+    }
+  });
+
       //fetching plants
       document.addEventListener("DOMContentLoaded", async function () {
         const gallerySlider = document.getElementById("gallerySlider");
@@ -359,11 +399,8 @@
         const querySnapshot = await getDocs(collection(db, "plants"));
         querySnapshot.forEach((doc) => {
           const plantData = doc.data();
-          console.log(plantData.plantImage);
-          // const imageUrl = storageRef.child(plantData.plantImage).getDownloadURL();
-          // console.log(imageUrl)
           const plantCard = `
-                <div class="card w-64 h-40 bg-green-600 flex flex-col items-center justify-center rounded-lg shadow-lg text-white text-xl">
+                <div class="card w-64 h-60 bg-green-600 flex flex-col items-center justify-center rounded-lg shadow-lg text-white text-xl">
                     <img src="${plantData.plantImage}" alt="..." class="w-full h-full object-cover rounded-lg">
                     <h1 class="font-bold"> ${plantData.plantName}</h1>
                     <p>${plantData.plantType}</p>
@@ -371,6 +408,7 @@
             `;
           gallerySlider.innerHTML += plantCard;
         });
+       
 
         nextBtn.addEventListener("click", function () {
           gallerySlider.scrollBy({ left: scrollAmount, behavior: "smooth" });
